@@ -121,6 +121,7 @@ class _HomePageState extends State<HomePage> {
       setState(() {
         _isLoading = false;
       });
+      _loadCepsFromBackend();
     }
   }
 
@@ -148,6 +149,8 @@ class _HomePageState extends State<HomePage> {
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(content: Text('Erro ao excluir o CEP.')),
                     );
+                  } finally {
+                    _loadCepsFromBackend();
                   }
                 },
                 child: const Text('Excluir'),
@@ -204,6 +207,7 @@ class _HomePageState extends State<HomePage> {
       setState(() {
         _isLoading = false;
       });
+      _loadCepsFromBackend();
     }
   }
 
